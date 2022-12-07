@@ -33,6 +33,20 @@ function findByArtist(thisArtist){
     return songsByArtist;
 }
 
+function search(searchForName, searchForYear){
+    let newArray = [];
+
+    for (let i = 0; i < collection.length; i++){
+       if (collection[i].artist === searchForName){
+            if(collection[i].yearPublished === searchForYear){
+                newArray.push(collection[i]);
+            }
+       }
+    }
+
+    return newArray;
+}
+
 // Test addToCollection
 console.log(
   "Just added",
@@ -58,7 +72,9 @@ console.log(collection);
 showCollection(collection);
 
 //Test findByArtist
-
 console.log('Songs by Ariana Grande', findByArtist('Ariana Grande'));
 console.log('Songs by Missy Elliott', findByArtist('Missy Elliott'));
 console.log('Songs by Justin Bieber', findByArtist('Justin Bieber'));
+
+//Test search
+console.log("Songs by D'Angelo in 2000", search("D'Angelo", 2000));
