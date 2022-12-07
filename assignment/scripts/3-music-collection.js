@@ -7,7 +7,7 @@ function addToCollection(title, artist, yearPublished, tracks) {
 }
 
 function showCollection(array) {
-  console.log('There are', array.length, 'items in the collection');
+  console.log("There are", array.length, "items in the collection");
 
   for (let type of array) {
     console.log(
@@ -39,11 +39,20 @@ function search(object) {
   //artist and year are not passing over
 
   //if (artist.empty() || year.empty()) {
-   // return collection;
-//  }
+  // return collection;
+  //  }
+
+  // collection[i].tracks[j]
   for (let i = 0; i < collection.length; i++) {
-    if (collection[i].artist === object.name && collection[i].yearPublished === object.year) {
-        newArray.push(collection[i]);
+    if (
+      collection[i].artist === object.name &&
+      collection[i].yearPublished === object.year
+    ) {
+      for (let j = 0; j < 3; j++) {
+        if (collection[i].tracks[j].name === object.trackName) {
+          newArray.push(collection[i]);
+        }
+      }
     }
   }
   return newArray;
@@ -109,5 +118,11 @@ console.log("Albums by Missy Elliott", findByArtist("Missy Elliott"));
 console.log("Albums by Justin Bieber", findByArtist("Justin Bieber"));
 
 //Test search
-console.log("Albums by Ariana Grande in 2019", search({name: "Ariana Grande", year: 2019}));
-console.log("Albums by empty", search("Ariana Grande"));
+console.log(
+  "Albums by Ariana Grande in 2019",
+  search({ name: "Ariana Grande", year: 2019, trackName: "NASA" })
+);
+console.log(
+    "Albums by Ariana Grande in 2019",
+    search({ name: "Ariana Grande", year: 2019, trackName: "imagine" })
+  );
