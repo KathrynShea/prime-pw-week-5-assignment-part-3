@@ -34,12 +34,11 @@ function findByArtist(thisArtist) {
 
 function search(object) {
   let newArray = [];
-
+  if (object == undefined) {
+    return collection;
+  }
   if (Object.keys(object).length === 0) {
-    return console.log(
-      "No object sent, here is the full collection:",
-      collection
-    );
+    return collection;
   }
   for (let i = 0; i < collection.length; i++) {
     if (
@@ -76,33 +75,33 @@ console.log(
 console.log(
   "Just added:",
   addToCollection("No More Drama", "Missy Elliott", 2001, [
-    { name: "imagine", duration: "3:32" },
-    { name: "needy", duration: "2:52" },
-    { name: "NASA", duration: "3:02" },
+    { name: "Love", duration: "2:46" },
+    { name: "Family Affair", duration: "4:27" },
+    { name: "Crazy Games", duration: "3:24" },
   ])
 );
 console.log(
   "Just added:",
   addToCollection("Sing to the Moon", "Laura Mvula", 2013, [
-    { name: "imagine", duration: "3:32" },
-    { name: "needy", duration: "2:52" },
-    { name: "NASA", duration: "3:02" },
+    { name: "Like the Morning Dew", duration: "3:41" },
+    { name: "Sing to the Moon", duration: "4:08" },
+    { name: "Is There Anybody Out There?", duration: "5:12" },
   ])
 );
 console.log(
   "Just added:",
   addToCollection("Voodoo", "D'Angelo", 2000, [
-    { name: "imagine", duration: "3:32" },
-    { name: "needy", duration: "2:52" },
-    { name: "NASA", duration: "3:02" },
+    { name: "Playa Playa", duration: "7:07" },
+    { name: "The Line", duration: "5:16" },
+    { name: "The Root", duration: "6:33" },
   ])
 );
 console.log(
   "Just added:",
   addToCollection("Iconology", "Missy Elliott", 2019, [
-    { name: "imagine", duration: "3:32" },
-    { name: "needy", duration: "2:52" },
-    { name: "NASA", duration: "3:02" },
+    { name: "Throw It Back", duration: "3:13" },
+    { name: "DripDemeanor", duration: "3:52" },
+    { name: "Cool Off", duration: "2:16" },
   ])
 );
 console.log("Here is the full collection", collection);
@@ -125,4 +124,9 @@ console.log(
   'Albums by Ariana Grande in 2019 with track "imagine"',
   search({ name: "Ariana Grande", year: 2019, trackName: "imagine" })
 );
-console.log("Albums by empty - this should of come back empty", search({}));
+console.log(
+  "Albums by NO OBJECT SENT- should return whole collection",
+  search()
+);
+
+console.log("Albums by Justin Bieber", search({ name: "Justing Bieber" }));
