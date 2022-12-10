@@ -113,7 +113,7 @@ showCollection(collection);
 //Test findByArtist
 console.log("Albums by Ariana Grande", findByArtist("Ariana Grande"));
 console.log("Albums by Missy Elliott", findByArtist("Missy Elliott"));
-console.log("Albums by Justin Bieber", findByArtist("Justin Bieber"));
+console.log("Albums by Justin Bieber - expect empty array", findByArtist("Justin Bieber"));
 
 //Test search
 console.log(
@@ -124,9 +124,9 @@ console.log(
   'Albums by Ariana Grande in 2019 with track "imagine"',
   search({ name: "Ariana Grande", year: 2019, trackName: "imagine" })
 );
-console.log(
-  "Albums by NO OBJECT SENT- should return whole collection",
-  search()
-);
+console.log("Albums by NO OBJECT SENT- expect whole collection", search());
 
-console.log("Albums by Justin Bieber", search({ name: "Justing Bieber" }));
+console.log(
+  "Albums by Justin Bieber - expect empty Array",
+  search({ name: "Justing Bieber" })
+);
